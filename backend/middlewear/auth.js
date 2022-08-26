@@ -3,7 +3,7 @@ const jwt = require('jsonwebtoken');
 module.exports = (req,res,next)=>{
     try {
         const token = req.headers.authorization.split(' ')[1]; //get the token from the request
-        const decodedToken = jwt.verify(token , 'TOKEN-STRING'); // get the decoded token
+        const decodedToken = jwt.verify(token , 'Radnom_token'); // get the decoded token
         const userId = decodedToken.userId;
         req.auth = {userId: userId}; // Create a req.auth object
         if (req.body.userId && req.body.userId !== userId){
